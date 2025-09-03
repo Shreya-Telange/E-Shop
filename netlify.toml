@@ -1,7 +1,6 @@
-echo "[build]
-command = \"npm run build\"
-publish = \".next\"
-functions = \"netlify/functions\"
+[build]
+command = "npm run build"
+publish = "out"
 
 [[plugins]]
-package = \"@netlify/plugin-nextjs\"" > netlify.toml
+package = "@netlify/plugin-nextjs"
