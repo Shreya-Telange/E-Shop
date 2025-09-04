@@ -3,16 +3,23 @@ import ProductDetails from "./ProductDetails";
 import ListRating from "./ListRating";
 import { products } from "@/utils/products";
 
+// Define type according to Next.js App Router convention
 interface ProductPageProps {
   params: {
     productId: string;
   };
 }
 
-const Product = async ({ params }: ProductPageProps) => {
-  const productId = params.productId;
+// ✅ Static params generation for SSG
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    productId: product.id,
+  }));
+}
 
-  // Find the product
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { productId } = params;
+
   const product = products.find((item) => item.id === productId);
 
   if (!product) {
@@ -36,6 +43,4 @@ const Product = async ({ params }: ProductPageProps) => {
       </Container>
     </div>
   );
-};
-
-export default Product;
+}
