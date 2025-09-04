@@ -3,21 +3,14 @@ import ProductDetails from "./ProductDetails";
 import ListRating from "./ListRating";
 import { products } from "@/utils/products";
 
-// Define type according to Next.js App Router convention
-interface ProductPageProps {
+type ProductPageProps = {
   params: {
     productId: string;
   };
-}
+};
 
-// ✅ Static params generation for SSG
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    productId: product.id,
-  }));
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
+// ✅ Relaxed typing to avoid Next.js 15 PageProps bug
+export default async function ProductPage({ params }: ProductPageProps & any) {
   const { productId } = params;
 
   const product = products.find((item) => item.id === productId);
@@ -43,4 +36,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </Container>
     </div>
   );
+}
+
+// ✅ Needed for static generation
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    productId: product.id,
+  }));
 }
