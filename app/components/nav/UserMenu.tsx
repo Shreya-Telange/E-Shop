@@ -7,7 +7,7 @@ import Link from "next/link";
 import MenuItem from "./MenuItem";
 import {signOut} from "next-auth/react"
 import BackDrop from "./BackDrop";
-import { User } from "@clerk/nextjs/server";
+// import { User } from "@clerk/nextjs/server";
 import { SafeUser } from "@/types";
 
 interface UserMenuProps{
