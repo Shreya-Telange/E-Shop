@@ -3,15 +3,14 @@ import ProductDetails from "./ProductDetails";
 import ListRating from "./ListRating";
 import { products } from "@/utils/products";
 
-interface IParams {
-  productId?: string;
+interface ProductPageProps {
+  params: {
+    productId: string;
+  };
 }
 
-const Product = async ({ params }: { params: IParams }) => {
-  console.log('params', params);
-
-  // Ensure `params.productId` is accessed after resolving
-  const productId = params?.productId;
+const Product = async ({ params }: ProductPageProps) => {
+  const productId = params.productId;
 
   // Find the product
   const product = products.find((item) => item.id === productId);
