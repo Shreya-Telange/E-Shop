@@ -41,8 +41,9 @@ const toggleOpen = useCallback(() => {
             "
             >   
    
-                <Avatar  src={currentUser?.image}/>
-                <AiFillCaretDown />
+                <Avatar src={currentUser?.image ?? undefined} />
+
+                                <AiFillCaretDown />
             </div>
             {isOpen && (
                 <div className="absolute
