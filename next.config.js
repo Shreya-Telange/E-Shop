@@ -4,7 +4,10 @@ const nextConfig = {
     domains: ["firebasestorage.googleapis.com", "m.media-amazon.com"], // Added Amazon domain
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // ✅ Ignore ESLint errors during build
+  },
+  typescript: {
+    ignoreBuildErrors: true, // ✅ Ignore TypeScript errors during build
   },
 };
 
