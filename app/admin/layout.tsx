@@ -1,31 +1,17 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import NavBar from "./components/nav/NavBar";
-import Footer from "./components/Footer";
-import { CartProvider } from "@/providers/CartProvider";
+import AdminNav from "@/app/components/admin/AdminNav"; // ✅ fixed path
 
-export const metadata: Metadata = {
-  title: "E-Shop",
-  description: "Your online shopping store",
+export const metadata = {
+  title: "E-shop Admin",
+  description: "E-shop Admin Dashboard",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body>
-        <CartProvider>
-          <div className="flex flex-col min-h-screen">
-            {/* ✅ Removed currentUser prop */}
-            <NavBar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </CartProvider>
-      </body>
-    </html>
+    <div>
+      <AdminNav />
+      {children}
+    </div>
   );
-}
+};
+
+export default AdminLayout;

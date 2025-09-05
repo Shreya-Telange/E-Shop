@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/nav/NavBar";
-import Footer from "./components/footer/Footer";
-import CartProvider from "@/providers/CartProvider";
+import NavBar from "../app/components/nav/NavBar";   // ✅ fixed path
+import Footer from "../app/components/Footer/Footer"; // ✅ fixed path
+import CartProvider from "../providers/CartProvider"; // ✅ fixed path
 import { Toaster } from "react-hot-toast";
-import { getCurrentUser } from "@/actions/getCurrentUser";
+import { getCurrentUser } from "../actions/getCurrentUser"; // ✅ fixed path
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
 
-  console.log("user<<<", currentUser)
+  console.log("user<<<", currentUser);
 
   return (
     <html lang="en">
@@ -39,7 +39,7 @@ export default async function RootLayout({
         />
         <CartProvider>
           <div className="flex flex-col min-h-screen">
-            <NavBar currentUser ={currentUser} />
+            <NavBar />
             <main className="flex-grow">{children}</main>
             <Footer />
           </div>
