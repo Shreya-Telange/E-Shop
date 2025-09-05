@@ -1,4 +1,4 @@
-import AdminNav from "@/app/components/admin/AdminNav"; // ✅ fixed path
+import AdminNav from "@/components/admin/AdminNav"; // ✅ fixed path
 
 export const metadata = {
   title: "E-shop Admin",

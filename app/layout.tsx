@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import NavBar from "../app/components/nav/NavBar";   // ✅ fixed path
-import Footer from "../app/components/Footer/Footer"; // ✅ fixed path
-import CartProvider from "../providers/CartProvider"; // ✅ fixed path
+
+import NavBar from "@/components/nav/NavBar";       // ✅ fixed path
+import Footer from "@/components/Footer/Footer";   // ✅ fixed path
+import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
-import { getCurrentUser } from "../actions/getCurrentUser"; // ✅ fixed path
+import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const poppins = Poppins({
   subsets: ["latin"],
